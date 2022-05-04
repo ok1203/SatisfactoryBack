@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h1>Manage Tasks</h1></div>
+    <div class="m-3">
+        <a class="h3" th:href="@{/tasks/new}">Add New Task</a>
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Content</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>username</th>
+                <th>image</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="task: ${listTasks}">
+                <tr>
+                    <td>[[${task.id}]]</td>
+                    <td>[[${task.content}]]</td>
+                    <td>[[${task.deadline}]]</td>
+                    <td>[[${task.status}]]</td>
+                    <td>[[${task.user.getUsername}]]</td>
+                    <td><img src = "[[${task.imageId}]]"></td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/tasks/edit/' + ${task.id}}">Edit</a>
+                        <a class="h4 mr-3" th:href="@{'/tasks/delete/' + ${task.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
