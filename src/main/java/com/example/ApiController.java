@@ -79,7 +79,7 @@ public class ApiController {
         return (List<Task>) repoTask.findAll();
     }
 
-    @DeleteMapping("/Api/delete/{id}")
+    @DeleteMapping("/Api/deleteTask/{id}")
     public List<Task> deleteTask(@PathVariable Integer id){
         Task deletedTask = repoTask.findById(id).get();
         repoTask.delete(deletedTask);
