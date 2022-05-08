@@ -25,6 +25,14 @@ public class TaskController {
         return "tasks";
     }
 
+    @GetMapping("/user/{id}")
+    public String showUserTasksList(@PathVariable("id") Integer id, Model model) {
+        List<Task> listTasks = service.listUserAll(id);
+        model.addAttribute("listTasks", listTasks);
+
+        return "tasks";
+    }
+
     @GetMapping("/tasks/new")
     public String showNewForm(Model model){
         model.addAttribute("task" , new Task());

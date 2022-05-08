@@ -6,6 +6,7 @@ import com.example.user.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,19 @@ public class TaskService {
 
     public List<Task> listAll() {
         return (List<Task>) repo.findAll();
+    }
+
+    public List<Task> listUserAll(Integer Id) {
+        List<Task> tasks = (List<Task>) repo.findAll();
+        List<Task> user = new ArrayList<>();
+
+        for(int i = 0 ; i < tasks.size(); i++){
+            if(tasks.get(i).getUser().getId() == Id){
+                user.add(tasks.get(i));
+            }
+        }
+
+        return user;
     }
 
     public void save(Task task) {

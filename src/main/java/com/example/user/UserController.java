@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class UserController {
@@ -60,12 +61,19 @@ public class UserController {
         return "login";
     }
 
-    @PostMapping("/login/save")
+    @GetMapping("/login/save")
     public String saveLogin(User user, RedirectAttributes ra) {
-        user.setDateOfCreation(LocalDateTime.now().toString());
-        service.save(user);
-        ra.addFlashAttribute("message", "The user has been successfully created");
-        return "redirect:/index";
+        user.setDateOfCreation(" ");
+        user.setPhoneNumber(" ");
+        user.setFirstName(" ");
+        user.setLastName(" ");
+        for(int i = 0; i < service.listAll().size(); i++) {
+            if (Objects.equals(service.listAll().get(i).getUsername(), user.getUsername()) && Objects.equals(service.listAll().get(i).getPassword(), user.getPassword())){
+                return "forward:/user/" + service.listAll().get(i).getId();
+            }
+        }
+        ra.addFlashAttribute("message", "The user hasn't been found");
+        return "login";
     }
 
     @GetMapping("/users/delete/{id}")
