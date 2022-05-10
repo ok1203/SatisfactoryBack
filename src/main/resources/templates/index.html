@@ -5,15 +5,14 @@
     <title>Welcome to the Satisfactory</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body>
-<div th:if="${message}" class="alert alert-success text-center">
-    [[${message}]]
-</div>
+<body style="background-image: url(Logo_3D_4k.png); background-size: cover; background-repeat: no-repeat;">
 <div class="container-fluid text-center">
     <h1>Welcome to the Satisfactory!</h1>
 <!--    <a class="h2" th:href="@{/users}">Manage Users</a>-->
     <a class="h2" th:href="@{/login}">login</a>
-    <a class="h2" th:href="@{/users/new}">regiter</a>
+</div>
+<div class="container-fluid text-center">
+    <a class="h2" th:href="@{/users/new}">register</a>
 </div>
 </body>
 </html>

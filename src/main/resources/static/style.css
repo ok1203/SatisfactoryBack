@@ -1,0 +1,121 @@
+body {
+    background-image: linear-gradient(rgb(145, 145, 145), rgb(255, 255, 255));
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    background-attachment: fixed;
+  }
+
+.note_block{
+  margin: 1vw;
+  padding: 0.5vw;
+  border-radius: 1vw;
+  background-color: white;
+}
+.note_name{
+  background-color: rgb(241, 197, 0);
+  padding: 0.5vw;
+  color: white;
+  border-radius: 3vw;
+  text-align: center;
+  font-size: 2.5vw;
+  margin: 0.5vw;
+  height: 3vw;
+  width:26vw;
+}
+.note_text{
+  background-color: rgb(228, 228, 228);
+  border-radius: 0.5vw;
+  margin: 0.5vw;
+  font-size: 2vw;
+  padding: 0.5vw;
+}
+
+.note_text_input{
+  background-color: rgb(228, 228, 228);
+  border-radius: 0.5vw;
+  margin: 0.5vw;
+  font-size: 2vw;
+  padding: 0.5vw;
+}
+
+.note_photo{
+  background-color: rgb(228, 228, 228);
+  border-radius: 0.5vw;
+  margin: 0.5vw;
+  padding: 0.5vw;
+}
+
+.tick_button{
+    cursor: pointer;
+    width: 4vw;
+    height: 4vw;
+    background-color: white;
+    border-radius: 2vw;
+    border-color: black;
+    border-width: 0.3vw;
+    text-align: center;
+    font-size: 2vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.tick_button:hover{
+  background-color: gray;
+  color: white;
+}
+
+.button{
+  cursor: pointer;
+  background-color: white;
+  border-radius: 2vw;
+  border-color: black;
+  border-width: 0.1vw;
+  text-align: center;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.button:hover{
+background-color: gray;
+color: white;
+}
+
+.add_task{
+  transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
+  background-color: rgb(126, 126, 126);
+  padding: 0.5vw;
+  color: white;
+  border-radius: 3vw;
+    border-color: black;
+    border-width: 0.3vw;
+  text-align: center;
+  font-size: 2.5vw;
+  margin: 0.5vw;
+  height: 3vw;
+  width:26vw;
+}
+
+.add_task:hover{
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.selector_style{
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  font-size: 1.5vw;
+  
+  border-radius: 0.5vw;
+}
+
+.selector_item{
+  border-radius: 1vw;
+  border-width: 2vw;
+}
+
+.selector_name_style{
+  font-size: 1.5vw;
+}

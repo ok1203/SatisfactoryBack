@@ -8,10 +8,7 @@
 <body>
 <div class="container-fluid">
     <div class="text-center"><h2>User Form</h2></div>
-    <div th:if="${message}" class="alert alert-success text-center">
-        [[${message}]]
-    </div>
-    <form th:action="@{/login/save}" method="get" th:object="${user}"
+    <form th:action="@{/login/save}" method="GET" th:object="${user}"
           style="max-width: 500px; margin: 0 auto;">
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">

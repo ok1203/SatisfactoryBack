@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/users/new")
-    public String showNewForm(Model model) {
+    public String showNewForm(Model model, RedirectAttributes ra) {
         model.addAttribute("user", new User());
         //model.addAttribute("pageTitle", "Registration");
         return "user_form";
@@ -47,7 +47,7 @@ public class UserController {
             //model.addAttribute("pageTitle", "Edit user (ID: " + id + ")");
             return "user_form";
         } catch (UserNotFoundException e) {
-            ra.addFlashAttribute("message", "The user has been saved successfully");
+
             return "redirect:/users";
         }
     }
@@ -57,7 +57,6 @@ public class UserController {
         model.addAttribute("user", new User());
         //List<User> listUsers = service.listAll();
         //model.addAttribute("listUsers", listUsers);
-
         return "login";
     }
 
