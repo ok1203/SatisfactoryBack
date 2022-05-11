@@ -3,48 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <title>Tasks</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{style.css}"/>
 </head>
 <body>
-<div class="container-fluid text-center">
-    <div><h1>Manage Tasks</h1></div>
-    <div class="m-3">
-        <a class="h3" th:href="@{/tasks/new}">Add New Task</a>
-    </div>
-    <div th:if="${message}" class="alert alert-success text-center">
+<div style="margin-left: 30vw; margin-right: 30vw;">
+    <a class="note_block" th:href="@{/tasks/new}" style="text-align: center;">
+        Add New Task
+    </a>
+
+    <div th:if="${message}" class="note_block" style="text-align: center;">
         [[${message}]]
     </div>
 
-    <div>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Content</th>
-                <th>Deadline</th>
-                <th>Status</th>
-                <th>username</th>
-                <th>image</th>
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:each="task: ${listTasks}">
-                <tr>
-                    <td>[[${task.id}]]</td>
-                    <td>[[${task.content}]]</td>
-                    <td>[[${task.deadline}]]</td>
-                    <td>[[${task.status}]]</td>
-                    <td>[[${task.user.getUsername}]]</td>
-                    <td><img th:src = "@{task.imageId}"></td>
-                    <td>
-                        <a class="h4 mr-3" th:href="@{'/tasks/edit/' + ${task.id}}">Edit</a>
-                        <a class="h4 mr-3" th:href="@{'/tasks/delete/' + ${task.id}}">Delete</a>
-                    </td>
-                </tr>
-            </th:block>
-            </tbody>
-        </table>
-    </div>
+
+    <th:block th:each="task: ${listTasks}">
+        <div class = "note_block">
+            <div style = "display: flex; justify-content: center; align-items: center;">
+                <div class="note_name"><a>[[${task.deadline}]]</a></div>
+                <button class="tick_button" style = "width:6vw; margin-right: 0.5vw; font-size: 1.5vw;"> [[${task.status}]]</button>
+            </div>
+            <div style = "display: flex; justify-content: center; align-items: center;">
+                <div class = "note_text" style="width: 36vw;">
+                    [[${task.content}]]
+                </div>
+            </div>
+            <div class = "note_photo">
+                <img th:src = "@{task.imageId}" style = "width: 33.7vw; height: auto; border-radius: 0.3vw;">
+            </div>
+            <div style = "display: flex; justify-content: center; align-items: center;">
+                <div class="note_text" style="width: 6vw;">
+                    [[${task.id}]]
+                </div>
+                <div class="note_text" style="width: 28vw;">
+                    [[${task.user.getUsername}]]
+                </div>
+            </div>
+            <div style = "display: flex; justify-content: center; align-items: center;">
+                <a class="button" th:href="@{'/tasks/edit/' + ${task.id}}" style="font-size:1.5vh; padding: 0.5vw; margin: 0.5vw; width:34vw;  color:#307ecd;" >Edit</a>
+                <a class="button" th:href="@{'/tasks/delete/' + ${task.id}}" style="font-size:1.5vh; padding: 0.5vw; margin: 0.5vw; width:34vw;  color:red;">Delete</a>
+            </div>
+        </div>
+    </th:block>
 </div>
 </body>
 </html>
+
+<style type="text/css" media="screen">
+    body {
+        background-image: linear-gradient(rgb(145, 145, 145), rgb(255, 255, 255));
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        font-family: Geneva, Arial, Helvetica, sans-serif;
+        background-attachment: fixed;
+    }
+
+    .note_block{
+        margin: 1vw;
+        padding: 0.5vw;
+        border-radius: 1vw;
+        background-color: white;
+    }
+    .note_name{
+        background-color: rgb(241, 197, 0);
+        padding: 0.5vw;
+        color: white;
+        border-radius: 3vw;
+        text-align: center;
+        font-size: 2.5vw;
+        margin: 0.5vw;
+        height: 3vw;
+        width:26vw;
+    }
+    .note_text{
+        background-color: rgb(228, 228, 228);
+        border-radius: 0.5vw;
+        margin: 0.5vw;
+        font-size: 2vw;
+        padding: 0.5vw;
+    }
+
+    .note_text_input{
+        background-color: rgb(228, 228, 228);
+        border-radius: 0.5vw;
+        margin: 0.5vw;
+        font-size: 2vw;
+        padding: 0.5vw;
+    }
+
+    .note_photo{
+        background-color: rgb(228, 228, 228);
+        border-radius: 0.5vw;
+        margin: 0.5vw;
+        padding: 0.5vw;
+    }
+
+    .tick_button{
+        cursor: pointer;
+        width: 4vw;
+        height: 4vw;
+        background-color: white;
+        border-radius: 2vw;
+        border-color: black;
+        border-width: 0.3vw;
+        text-align: center;
+        font-size: 2vw;
+        margin-left: 2vw;
+        margin-right: 2vw;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .tick_button:hover{
+        background-color: gray;
+        color: white;
+    }
+
+    .button{
+        cursor: pointer;
+        background-color: white;
+        border-radius: 2vw;
+        border-color: black;
+        border-width: 0.1vw;
+        text-align: center;
+        transition: background-color 0.5s, color 0.5s;
+    }
+
+    .button:hover{
+        background-color: gray;
+        color: white;
+    }
+
+    .add_task{
+        transition: background-color 0.5s, color 0.5s;
+        cursor: pointer;
+        background-color: rgb(126, 126, 126);
+        padding: 0.5vw;
+        color: white;
+        border-radius: 3vw;
+        border-color: black;
+        border-width: 0.3vw;
+        text-align: center;
+        font-size: 2.5vw;
+        margin: 0.5vw;
+        height: 3vw;
+        width:26vw;
+    }
+
+    .add_task:hover{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .selector_style{
+        margin-top: 0.5vw;
+        margin-bottom: 0.5vw;
+        font-size: 1.5vw;
+
+        border-radius: 0.5vw;
+    }
+
+    .selector_item{
+        border-radius: 1vw;
+        border-width: 2vw;
+    }
+
+    .selector_name_style{
+        font-size: 1.5vw;
+    }
+</style>
+

@@ -3,48 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add a new user</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
-<body>
-<div class="container-fluid">
-    <div class="text-center"><h2>User Form</h2></div>
-    <form th:action="@{/users/save}" method="post" th:object="${user}"
-    style="max-width: 500px; margin: 0 auto;">
-        <div class="border border-secondary rounded p-3">
+<body style="display: flex; justify-content: center;">
+<div style=" width:auto;  text-align: center; ">
+    <form th:action="@{/users/save}" method="post" th:object="${user}">
+        <div class="note_block">
             <input type="hidden" th:field="*{id}" />
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Username</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{username}" class="form-control" required minlength="4" maxlength="45"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">First Name</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="45"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Last Name</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="45"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Password</label>
-                <div class="col-sm-8">
-                    <input type="password" th:field="*{password}" class="form-control" required minlength="8" maxlength="15"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Phone Number</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{phoneNumber}" class="form-control" required minlength="6" maxlength="45"/>
-                </div>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary m-2">Save</button>
-                <button type="button" class="btn btn-secondary m-2" onclick="history.back()">Cancel</button>
+            <div style="font-size: 2vh">Username</div>
+            <input type="text" th:field="*{username}" class="selector_style" style="width: auto;font-size: 2vh" required minlength="4" maxlength="45"/>
+            <div style="font-size: 2vh">First Name</div>
+            <input type="text" th:field="*{firstName}" class="selector_style" style="width: auto;font-size: 2vh"required minlength="2" maxlength="45"/>
+
+            <div style="font-size: 2vh">Last Name</div>
+            <input type="text" th:field="*{lastName}" class="selector_style" style="width: auto;font-size: 2vh" required minlength="2" maxlength="45"/>
+            <div style="font-size: 2vh">Password</div>
+            <input type="password" th:field="*{password}" class="selector_style" style="width: auto;font-size: 2vh" required minlength="8" maxlength="15"/>
+            <div style="font-size: 2vh">Phone Number</div>
+            <input type="text" th:field="*{phoneNumber}" class="selector_style" style="width: auto;font-size: 2vh" required minlength="6" maxlength="45"/>
+
+
+            <div style = "display: flex; justify-content: center; align-items: center; padding: 0.5vw;">
+                <button type="submit" class="button" style="font-size:1.5vh; padding: 0.5vw; margin: 0.5vw; width:5vw; min-width: 200px;">Enter</button>
+                <button type="button" class="button" style="font-size:1.5vh; padding: 0.5vw; margin: 0.5vw; width:5vw; min-width: 200px;" onclick="history.back()">Cancel</button>
             </div>
         </div>
     </form>

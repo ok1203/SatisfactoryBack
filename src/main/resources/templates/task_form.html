@@ -3,59 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Task Form</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="text-center"><h2>Task Form</h2></div>
-    <form th:action="@{/tasks/save}" method="post" th:object="${task}"
-          style="max-width: 500px; margin: 0 auto;" enctype="multipart/form-data">
-        <div class="border border-secondary rounded p-3">
-            <input type="hidden" th:field="*{id}" />
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Deadline</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{deadline}" class="form-control" required minlength="4" maxlength="45"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Image Id</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{imageId}" class="form-control" maxlength="45"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">files</label>
-                <div class="col-sm-8">
-                    <div>
-                        <input type="file" name="files" multiple>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">User id</label>
-                <div class="col-sm-8">
-                    <input type="number" th:field="*{user.id}" class="form-control" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Content</label>
-                <div class="col-sm-8">
-                    <input type="text" th:field="*{content}" class="form-control" maxlength="250"/>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Status</label>
-                <div class="col-sm-8">
-                    <input type="checkbox" th:field="*{status}"/>
-                </div>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary m-2">Save</button>
-                <button type="button" class="btn btn-secondary m-2" onclick="history.back()">Cancel</button>
+
+<form th:action="@{/tasks/save}" method="post" th:object="${task}" style="margin-left: 30vw; margin-right: 30vw; " enctype="multipart/form-data">
+    <div class = "note_block">
+        <input type="hidden" th:field="*{id}" />
+        <div style = "display: flex; justify-content: center; align-items: center; ">
+            <textarea th:field="*{deadline}" placeholder="Deadline" required minlength="4" maxlength="8" class = "note_name" style="resize: none;height: 3.4vw;"></textarea>
+            <button class="tick_button" type="submit">+</button>
+        </div>
+        <div style = "display: flex; justify-content: center; align-items: center;">
+            <textarea th:field="*{content}" placeholder="Content" maxlength="250" class = "note_text" style="width: 33.7vw; height: auto; resize: vertical;"></textarea>
+        </div>
+        <div class = "note_photo">
+            <input type="file" name="files" multiple style = "width: 33.7vw; height: auto; border-radius: 0.3vw; background-color: gray; margin-top: 1vw; margin-bottom: 1vw;">
+        </div>
+        <div style = "display: flex; justify-content: center; align-items: center;">
+            <button type="button" class="button" style="width: 40vw; margin: 0.5vw; padding: 0.5vw; font-size: 2vw;" onclick="history.back()">Cancel</button>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">User id</label>
+            <div class="col-sm-8">
+                <input type="number" th:field="*{user.id}" class="form-control" />
             </div>
         </div>
-    </form>
-</div>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Status</label>
+            <div class="col-sm-8">
+                <input type="checkbox" th:field="*{status}"/>
+            </div>
+        </div>
+    </div>
+</form>
 </body>
 </html>

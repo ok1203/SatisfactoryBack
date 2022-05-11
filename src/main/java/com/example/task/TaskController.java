@@ -58,7 +58,7 @@ public class TaskController {
         }
         service.save(task);
         ra.addFlashAttribute("message", "The task has been successfully created");
-        return "redirect:/tasks";
+        return "redirect:/user/" + task.getUser().getId();
     }
 
     @GetMapping("/tasks/edit/{id}")
