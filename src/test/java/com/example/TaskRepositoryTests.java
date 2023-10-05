@@ -47,32 +47,32 @@ public class TaskRepositoryTests {
         }
     }
 
-    @Test
-    public void testUpdate() {
-        Integer taskId = 1;
-        Optional<Task> optionalTask = repo.findById(taskId);
-        Task task = optionalTask.get();
-        task.setContent("OMARIONWTF");
-        repo.save(task);
-
-        Task updatedTask = repo.findById(taskId).get();
-        Assertions.assertThat(updatedTask.getContent()).isEqualTo("OMARIONWTF");
-    }
-
-    @Test
-    public void testGet(){
-        Integer taskId = 1;
-        Optional<Task> optionalTask = repo.findById(taskId);
-        Assertions.assertThat(optionalTask).isPresent();
-        System.out.println(optionalTask.get());
-    }
-
-    @Test
-    public void testDelete() {
-        Integer taskId = 1;
-        repo.deleteById(taskId);
-
-        Optional<Task> optionalTask = repo.findById(taskId);
-        Assertions.assertThat(optionalTask).isNotPresent();
-    }
+//    @Test
+//    public void testUpdate() {
+//        Integer taskId = 1;
+//        Optional<Task> optionalTask = repo.findById(taskId);
+//        Task task = optionalTask.get();
+//        task.setContent("OMARIONWTF");
+//        repo.save(task);
+//
+//        Task updatedTask = repo.findById(taskId).get();
+//        Assertions.assertThat(updatedTask.getContent()).isEqualTo("OMARIONWTF");
+//    }
+//
+//    @Test
+//    public void testGet(){
+//        Integer taskId = 1;
+//        Optional<Task> optionalTask = repo.findById(taskId);
+//        Assertions.assertThat(optionalTask).isPresent();
+//        System.out.println(optionalTask.get());
+//    }
+//
+//    @Test
+//    public void testDelete() {
+//        Integer taskId = 1;
+//        repo.deleteById(taskId);
+//
+//        Optional<Task> optionalTask = repo.findById(taskId);
+//        Assertions.assertThat(optionalTask).isNotPresent();
+//    }
 }

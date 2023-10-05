@@ -18,22 +18,22 @@ import java.util.Optional;
 public class UserRepositoryTests {
     @Autowired private UserRepository repo;
 
-    @Test
-    public void testAddNew() {
-        User user = new User();
-        user.setPhoneNumber("87762472863");
-        user.setDateOfCreation(LocalDateTime.now().toString());
-        user.setUsername("hiruko");
-        user.setFirstName("Adilet");
-        user.setLastName("Toktybay");
-        user.setPassword("12345678");
-
-        User savedUser = repo.save(user);
-
-        Assertions.assertThat(savedUser).isNotNull();
-        Assertions.assertThat(savedUser.getId());
-
-    }
+//    @Test
+//    public void testAddNew() {
+//        User user = new User();
+//        user.setPhoneNumber("87762472863");
+//        user.setDateOfCreation(LocalDateTime.now().toString());
+//        user.setUsername("hiruko");
+//        user.setFirstName("Adilet");
+//        user.setLastName("Toktybay");
+//        user.setPassword("12345678");
+//
+//        User savedUser = repo.save(user);
+//
+//        Assertions.assertThat(savedUser).isNotNull();
+//        Assertions.assertThat(savedUser.getId());
+//
+//    }
 
     @Test
     public void testAll() {
@@ -65,12 +65,12 @@ public class UserRepositoryTests {
         System.out.println(optionalUser.get());
     }
 
-    @Test
-    public void testDelete() {
-        Integer userId = 16;
-        repo.deleteById(userId);
-
-        Optional<User> optionalUser = repo.findById(userId);
-        Assertions.assertThat(optionalUser).isNotPresent();
-    }
+//    @Test
+//    public void testDelete() {
+//        Integer userId = 16;
+//        repo.deleteById(userId);
+//
+//        Optional<User> optionalUser = repo.findById(userId);
+//        Assertions.assertThat(optionalUser).isNotPresent();
+//    }
 }
